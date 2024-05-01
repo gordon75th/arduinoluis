@@ -1,48 +1,54 @@
 bool TasterDruck = false;
-int Autorot=2;
-int Autogelb=3;
-int Autogrun=4;
-int Fussrot=5;
-int Fussgrun=6;
-int Taster=7;
-int Tasterstatus=0;
+int Autorot = 2;
+int Autogelb = 3;
+int Autogrun = 4;
+int Fussrot = 5;
+int Fussgrun = 6;
+int Taster = 7;
+int Tasterstatus = 0;
+
 void setup() {
-pinMode(Autorot, OUTPUT);
-pinMode(Autogelb, OUTPUT);
-pinMode(Autogrun, OUTPUT);
-pinMode(Fussrot, OUTPUT);
-pinMode(Fussgrun, OUTPUT);
-pinMode(Taster, INPUT);
+  pinMode(Autorot, OUTPUT);
+  pinMode(Autogelb, OUTPUT);
+  pinMode(Autogrun, OUTPUT);
+  pinMode(Fussrot, OUTPUT);
+  pinMode(Fussgrun, OUTPUT);
+  pinMode(Taster, INPUT);
 }
 
 void loop() {
-  if(TasterDruck == true){
-    pinMode(Taster, HIGH);
-    pinMode(Autorot, LOW);
-    pinMode(Autogelb, HIGH);
-    pinMode(Autogrun, LOW);
-    delay(1500);
-    pinMode(Autorot, HIGH);
-    pinMode(Autogelb, LOW);
-    pinMode(Autogrun, LOW);
-    pinMode(Fussrot, LOW);
-    pinMode(Fussgrun, HIGH);
-    delay(5000);
+  Tasterstatus = digitalRead(Taster);
+  
+  if (Tasterstatus == HIGH) {
+    TasterDruck = true;
+  } else {
+    TasterDruck = false;
   }
   
-  else(TasterDruck == false); {
-    pinMode(Autorot, HIGH);
-    pinMode(Autogelb, LOW);
-    pinMode(Autogrun, LOW);
-    pinMode(Fussrot, HIGH);
-    pinMode(Fussgrun, LOW);
+  if (TasterDruck == true) {
+    digitalWrite(Autorot, LOW);
+    digitalWrite(Autogelb, HIGH);
+    digitalWrite(Autogrun, LOW);
+    delay(1500);
+    digitalWrite(Autorot, HIGH);
+    digitalWrite(Autogelb, LOW);
+    digitalWrite(Autogrun, LOW);
+    digitalWrite(Fussrot, LOW);
+    digitalWrite(Fussgrun, HIGH);
+    delay(5000);
+  } else {
+    digitalWrite(Autorot, HIGH);
+    digitalWrite(Autogelb, LOW);
+    digitalWrite(Autogrun, LOW);
+    digitalWrite(Fussrot, HIGH);
+    digitalWrite(Fussgrun, LOW);
     delay(2000);
-    pinMode(Autorot, HIGH);
-    pinMode(Autogelb, HIGH);
-    pinMode(Autogrun, LOW);
+    digitalWrite(Autorot, HIGH);
+    digitalWrite(Autogelb, HIGH);
+    digitalWrite(Autogrun, LOW);
     delay(2000);
-    pinMode(Autorot, LOW);
-    pinMode(Autogelb, LOW);
-    pinMode(Autogrun, HIGH);
+    digitalWrite(Autorot, LOW);
+    digitalWrite(Autogelb, LOW);
+    digitalWrite(Autogrun, HIGH);
   }
 }
