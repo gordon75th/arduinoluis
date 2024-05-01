@@ -2,8 +2,8 @@ const int pedTasterPin = 2;
 const int autoRotPin = 3;
 const int GelbesAUTO = 4;
 const int autoGruenPin = 5;
-const int pedestrianRedPin = 6;
-const int pedestrianGreenPin = 7; 
+const int pedRotPin = 6;
+const int pedGruenPin = 7; 
 
 const int roteDauer = 5000;
 const int gelbeDauer = 2000;
@@ -14,15 +14,15 @@ void setup() {
   pinMode(autoRotPin, OUTPUT);
   pinMode(GelbesAUTO, OUTPUT);
   pinMode(autoGruenPin, OUTPUT);
-  pinMode(pedestrianRedPin, OUTPUT);
-  pinMode(pedestrianGreenPin, OUTPUT);
+  pinMode(pedRotPin, OUTPUT);
+  pinMode(pedGruenPin, OUTPUT);
   
   digitalWrite(autoRotPin, HIGH);
   digitalWrite(GelbesAUTO, LOW);
   digitalWrite(autoGruenPin, LOW);
   
-  digitalWrite(pedestrianRedPin, HIGH); 
-  digitalWrite(pedestrianGreenPin, LOW);
+  digitalWrite(pedRotPin, HIGH); 
+  digitalWrite(pedGruenPin, LOW);
 }
 
 void loop() {
@@ -31,22 +31,22 @@ void loop() {
     digitalWrite(GelbesAUTO, LOW);
     digitalWrite(autoGruenPin, LOW);
 
-    digitalWrite(pedestrianRedPin, LOW);
-    digitalWrite(pedestrianGreenPin, HIGH);
+    digitalWrite(pedRotPin, LOW);
+    digitalWrite(pedGruenPin, HIGH);
     
     delay(grueneDauer);
     changeTheFuckingLights();
     
   } else {
-    digitalWrite(pedestrianRedPin, HIGH);
-    digitalWrite(pedestrianGreenPin, LOW);
+    digitalWrite(pedRotPin, HIGH);
+    digitalWrite(pedGruenPin, LOW);
     gradualchangeTheFuckingLights();
   }
 }
 
 void changeTheFuckingLights() {
-  digitalWrite(pedestrianRedPin, HIGH);
-  digitalWrite(pedestrianGreenPin, LOW);
+  digitalWrite(pedRotPin, HIGH);
+  digitalWrite(pedGruenPin, LOW);
   digitalWrite(autoRotPin, HIGH);
   digitalWrite(GelbesAUTO, LOW);
   digitalWrite(autoGruenPin, LOW);
