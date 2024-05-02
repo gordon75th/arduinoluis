@@ -40,7 +40,7 @@ void loop() {
   } else {
     digitalWrite(pedRotPin, HIGH);
     digitalWrite(pedGruenPin, LOW);
-    gradualaendereDieLichter();
+    gradualAendereDieLichter();
   }
 }
 
@@ -59,7 +59,7 @@ void aendereDieLichter() {
   delay(grueneDauer);
 }
 
-void gradualaendereDieLichter() {
+void gradualAendereDieLichter() {
   digitalWrite(autoRotPin, HIGH);
   digitalWrite(GelbesAUTO, LOW);
   digitalWrite(autoGruenPin, LOW);
