@@ -35,16 +35,16 @@ void loop() {
     digitalWrite(pedGruenPin, HIGH);
     
     delay(grueneDauer);
-    changeTheFuckingLights();
+    aendereDieLichter();
     
   } else {
     digitalWrite(pedRotPin, HIGH);
     digitalWrite(pedGruenPin, LOW);
-    gradualchangeTheFuckingLights();
+    gradualaendereDieLichter();
   }
 }
 
-void changeTheFuckingLights() {
+void aendereDieLichter() {
   digitalWrite(pedRotPin, HIGH);
   digitalWrite(pedGruenPin, LOW);
   digitalWrite(autoRotPin, HIGH);
@@ -59,7 +59,7 @@ void changeTheFuckingLights() {
   delay(grueneDauer);
 }
 
-void gradualchangeTheFuckingLights() {
+void gradualaendereDieLichter() {
   digitalWrite(autoRotPin, HIGH);
   digitalWrite(GelbesAUTO, LOW);
   digitalWrite(autoGruenPin, LOW);
